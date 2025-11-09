@@ -1,5 +1,3 @@
-from scraper import get_times
-from scraper import PRAYER_NAMES
 import requests
 import random
 
