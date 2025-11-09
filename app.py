@@ -7,6 +7,9 @@ from emailer import send_email
 from flask import Flask, request
 from flask_cors import CORS
 import schedule
+import sys
+sys.stdout.reconfigure(line_buffering=True)
+
 app = Flask(__name__)
 CORS(app)
 
@@ -33,7 +36,7 @@ def send_email_job():
         print(f"Error sending email: {e}")
 
 def run_scheduler():
-    schedule.every().day.at("02:43").do(send_email_job)
+    schedule.every().day.at("07:00").do(send_email_job)
     print("Scheduler initialised.")
     while True:
         schedule.run_pending()
